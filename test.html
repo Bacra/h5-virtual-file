@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<script src="./virtual_file.js"></script>
+<script>
+
+function readData(vfile, start, end, result)
+{
+	var reader = new FileReader;
+	reader.onload = function(e)
+	{
+		console.assert(e.target.result == result, 'blob,'+start+','+end+' => '+e.target.result+' : '+result);
+	}
+
+	reader.readAsText(vfile.slice(start, end));
+}
+
+
+var vfile = new VirtualFile(new Blob(['0123456789']), 'filename', 20*1024*1024);
+
+readData(vfile, 0, 9, '012345678');
+readData(vfile, 0, 10, '0123456789');
+readData(vfile, 1, 10, '123456789');
+readData(vfile, 1, 11, '1234567890');
+readData(vfile, 1, 21, '12345678901234567890');
+readData(vfile, 1, 25, '123456789012345678901234');
+readData(vfile, 2, 31, '23456789012345678901234567890');
+
+
+var vfile2 = new VirtualFile(new Blob(['0123456789']), 'filename', 20);
+
+readData(vfile2, 0, 9, '012345678');
+readData(vfile2, 0, 10, '0123456789');
+readData(vfile2, 1, 10, '123456789');
+readData(vfile2, 1, 11, '1234567890');
+readData(vfile2, 1, 21, '1234567890123456789');
+readData(vfile2, 1, 25, '1234567890123456789');
+readData(vfile2, 2, 31, '234567890123456789');
+
+</script>

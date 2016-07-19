@@ -1,0 +1,15 @@
+{
+  "name": "h5-virtual-file",
+  "version": "0.1.0",
+  "description": "virtual file for browser test",
+  "main": "virtual_file.js",
+  "keywords": [
+    "virtual",
+    "file",
+    "browser",
+    "h5",
+    "filereader"
+  ],
+  "author": "bacrawu <bacra.woo@gmail.com>",
+  "license": "MIT"
+}

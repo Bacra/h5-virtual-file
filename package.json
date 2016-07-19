@@ -7,9 +7,14 @@
     "virtual",
     "file",
     "browser",
-    "h5",
-    "filereader"
+    "upload",
+    "html5",
+    "FileReader"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Bacra/h5-virtual-file.git"
+  },
   "author": "bacrawu <bacra.woo@gmail.com>",
   "license": "MIT"
 }
